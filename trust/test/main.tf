@@ -5,6 +5,11 @@ terraform {
       version = "~> 5.0.1"
     }
   }
+  cloud {
+    workspaces {
+      name = "tfc-iam-role-test"
+    }
+  }
 }
 
 provider "aws" {
