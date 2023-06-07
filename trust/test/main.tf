@@ -1,11 +1,6 @@
 terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0.1"
-    }
-  }
   cloud {
+    organization = "<Organization名>" # 書き換える
     workspaces {
       name = "tfc-iam-role-test"
     }
