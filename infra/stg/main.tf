@@ -20,12 +20,25 @@ module "vpc" {
   enable_nat_gateway = false
 }
 
-# resource "aws_instance" "main" {
-#   ami                    = "ami-0c55b159cbfafe1f0"
-#   instance_type          = "t2.micro"
-#   vpc_security_group_ids = [aws_security_group.web.id]
-#   subnet_id              = aws_subnet.web.id
-#   tags = {
-#     Name = "web"
-#   }
-# }
+data "aws_ami" "this" {
+  most_recent = true
+  owners      = ["amazon"]
+  filter {
+    name   = "architecture"
+    values = ["arm64"]
+  }
+  filter {
+    name   = "name"
+    values = ["al2023-ami-2023*"]
+  }
+}
+
+resource "aws_instance" "main" {
+  ami           = data.aws_ami.this.id
+  instance_type = "t3.micro"
+  #   vpc_security_group_ids = [aws_security_group.web.id]
+  subnet_id = module.vpc.private_subnets[0]
+  tags = {
+    Name = "test"
+  }
+}
