@@ -19,17 +19,12 @@ module "vpc" {
   enable_nat_gateway = false
 }
 
-data "aws_ami" "this" {
-  most_recent = true
-  owners      = ["amazon"]
-  filter {
-    name   = "name"
-    values = ["al2023-ami-2023*"]
-  }
+data "aws_ssm_parameter" "amazonlinux_2023" {
+  name = "/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64" # x86_64
 }
 
 resource "aws_instance" "main" {
-  ami           = data.aws_ami.this.id
+  ami           = data.aws_ssm_parameter.amazonlinux_2023.value
   instance_type = "t3.micro"
   subnet_id     = module.vpc.private_subnets[0]
   tags = {
