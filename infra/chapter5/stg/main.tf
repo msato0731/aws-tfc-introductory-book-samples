@@ -29,6 +29,7 @@ resource "aws_instance" "main" {
   subnet_id     = module.vpc.private_subnets[0]
   tags = {
     Name = local.name
-    Env = "stg"
+    # 自動デプロイのテスト時にコメント外す
+    # Env = "stg"
   }
 }
