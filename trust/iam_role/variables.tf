@@ -1,4 +1,4 @@
-variable "tfc_organization_name" {
+variable "hcp_tf_organization_name" {
   type        = string
-  description = "The name of your Terraform Cloud organization"
+  description = "The name of your HCP Terraform organization"
 }
