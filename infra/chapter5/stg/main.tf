@@ -15,7 +15,7 @@ provider "aws" {
 data "aws_availability_zones" "available" {}
 
 locals {
-  name     = "${basename(path.cwd)}-tfc-aws-book"
+  name     = "${basename(path.cwd)}-hcp-tf-aws-book"
   vpc_cidr = "10.0.0.0/16"
   azs      = slice(data.aws_availability_zones.available.names, 0, 3)
 }
