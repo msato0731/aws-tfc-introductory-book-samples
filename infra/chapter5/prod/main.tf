@@ -40,6 +40,6 @@ resource "aws_instance" "main" {
   tags = {
     Name = local.name
     # 自動デプロイのテスト時にコメント外す
-    # Env = "prod"
+    Env = "prod"
   }
 }
