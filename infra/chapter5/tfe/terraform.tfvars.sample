@@ -1,0 +1,6 @@
+organization_name = "<HCP Terraform Organizations名>"
+# project_name             = "" # 任意
+# variable_set_name        = "" # 任意
+# workspace_name_suffix    = "" # 任意
+github_organization_name = "<GitHub Organization名またはユーザー名>"
+aws_run_role_arn         = "<HCP Terraform用IAMロール ARN>"
