@@ -50,7 +50,7 @@ resource "tfe_workspace" "prod" {
   auto_apply            = false
   file_triggers_enabled = false
   terraform_version     = "~> 1.10.2"
-  working_directory     = "infra/aws/chapter5/prod"
+  working_directory     = "infra/chapter5/aws/prod"
 
   vcs_repo {
     identifier                 = "${var.github_organization_name}/aws-tfc-introductory-book-samples"
@@ -66,7 +66,7 @@ resource "tfe_workspace" "stg" {
   auto_apply            = true
   file_triggers_enabled = false
   terraform_version     = "~> 1.10.2"
-  working_directory     = "infra/aws/chapter5/stg"
+  working_directory     = "infra/chapter5/aws/stg"
 
   vcs_repo {
     identifier                 = "${var.github_organization_name}/aws-tfc-introductory-book-samples"
