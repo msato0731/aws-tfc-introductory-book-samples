@@ -3,7 +3,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.82.2"
+      version = "~> 6.0"
     }
   }
   cloud {}
@@ -41,6 +41,6 @@ resource "aws_instance" "main" {
   tags = {
     Name = local.name
     # 自動デプロイのテスト時にコメント外す
-    Env = "prod"
+    # Env = "prod"
   }
 }
